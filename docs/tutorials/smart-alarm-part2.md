@@ -158,3 +158,43 @@ loops.everyInterval(500, function () {
 Du hast eine einfache Alarmanlage programmiert und somit den ersten Teil des Tutorials 
 absolviert! Durch das Klicken auf den [Link](https://makecode.microbit.org/#tutorial:github:kosta11111/SmartAlarmanlage/docs/tutorials/tutorial_part2)
 kommst du zum zweiten Teil des Turials, in dem du den IoT-Cube mit der Claviscloud verbindest.
+
+```template
+function sendeDaten (status: number) {
+    if (control.millis() > msBeiLetztemSenden + 5000) {
+        IoTCube.addBinary(eIDs.ID_0, status)
+        IoTCube.SendBufferSimple()
+        spaeterSenden = false
+        msBeiLetztemSenden = control.millis()
+    } else {
+        spaeterSenden = true
+    }
+}
+
+let msBeiLetztemSenden = 0
+let spaeterSenden = false
+
+basic.forever(function () {
+    while (aktiv) {
+        if (smartfeldSensoren.measureInCentimetersV2(DigitalPin.P1) > 10) {
+            music.play(music.tonePlayable(262, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+        } else {
+
+        }
+    }
+})
+
+loops.everyInterval(500, function () {
+    if (spaeterSenden) {
+        sendeDaten(objektVorhanden)
+    }
+})
+
+input.onButtonPressed(Button.A, function () {
+    aktiv = 1
+})
+
+input.onButtonPressed(Button.B, function () {
+    aktiv = 0
+})
+```
