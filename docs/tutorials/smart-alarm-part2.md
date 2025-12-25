@@ -49,11 +49,12 @@ Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud
 
 * **Erstelle** eine neue Variable namens ``||variables: objektVorhanden |``
  
-* **Setze** die neue Variable in **objektSicher** auf **1** und in **objektGeklaut** auf **0**
+* **Setze** die neue Variable mit ``||variables: setze objektVorhanden auf||`` in 
+**objektSicher** auf **1** und in **objektGeklaut** auf **0**
 
 * In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-* **Ziehe** ins leere Feld des Aufrufs die Variable rein
+* **Ziehe** ins leere Feld des **Aufrufs** die **Variable** rein
 
 
 ```blocks
@@ -72,11 +73,10 @@ function objektGeklaut () {
 Nun haben wir unsere zwei Funktionen, welche unserem Dashboard Bescheid geben,
 ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
 
-* **Füge** den ``||functions:Aufruf objektSicher||`` in den **Start** hinzu, um
-beim Starten den Programms das Dashboard auf den richtigen Zustand zu aktuallisieren.
-* **Füge** den ``||functions:Aufruf objektGeklaut||`` in die ``||logic:Wenn-Abfrage||`` 
-von dauerhaft **hinzu**, drücke auf das **Plus der Abfrage** und füge dann in  **ansonsten** den
-``||functions:Aufruf objektSicher||`` hinzu.
+* **Füge** in die **Wenn-Abfrage** von ``||basic:dauerhaft||`` den 
+``||functions:Aufruf objektGeklaut||`` hinzu
+
+* In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
 
 ```blocks
 IoTCube.LoRa_Join(
@@ -90,9 +90,7 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
 }
 basic.showIcon(IconNames.Yes)
 spaeterSenden = false
-sendeErlaubnis = false
 msBeiLetztemSenden = control.millis()
-objektSicher()
 
 basic.forever(function () {
     if (smartfeldSensoren.measureInCentimetersV2(DigitalPin.P1) > 10) {
@@ -103,29 +101,10 @@ basic.forever(function () {
     }
 })
 ```
-## Schritt 4
-
-Um sicherzugehen, dass die Daten verlässlich gesendet wurden, machen wir eine Schleife
-die prüft, ob die Daten beim Aufrufen der Funktion geschickt wurden.
-
-* **Ziehe** den Block ``||loops: alle 500ms ||`` ins **Programm**.
-* **Ziehe** den ``||logic: wenn dann ||`` Block in die **Schleife**.
-* **Ziehe** die Variable ``||variables: spaeterSenden |`` ins leere Feld
-der **Wenn-Abfrage**.
-* **Rufe** die Funktion ``||functions: sendeDaten(objektVorhanden) ||`` in der **Schleife** auf.
-
-```blocks
-loops.everyInterval(500, function () {
-    if (spaeterSenden) {
-        sendeDaten(objektVorhanden)
-    }
-})
-```
 ## Glückwunsch🤩
 
-Du hast eine einfache Alarmanlage programmiert und somit den ersten Teil des Tutorials 
-absolviert! Durch das Klicken auf den [Link](https://makecode.microbit.org/#tutorial:github:kosta11111/SmartAlarmanlage/docs/tutorials/tutorial_part2)
-kommst du zum zweiten Teil des Turials, in dem du den IoT-Cube mit der Claviscloud verbindest.
+Du hast die Alarmanlage mit all seinen Funktionen programmiert! Gehe auf die [Claviscloud](https://iot.claviscloud.ch/home),
+um dort dein IoT-Cube mit dem Dashboard für die Alarmanlage zu verbinden!
 
 ```template
 function sendeDaten (status: number) {
