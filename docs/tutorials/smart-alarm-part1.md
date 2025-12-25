@@ -66,7 +66,7 @@ Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
  
 * **Ändere bei einem** der beiden Codeblöcken **den Buchstaben** auf ein **B** um.
 
-* Erstelle eine neue ``||Variables:Variable||`` namens **"aktiv"**.
+* **Erstelle** eine neue ``||Variables:Variable||`` namens **"aktiv"**.
 
 * **Füge** ``||Variables:setze aktiv auf 0||`` in ``||input: Wenn Knopf B geklickt||`` ein.
 
@@ -98,6 +98,7 @@ basic.forever(function () {
     }
 })
 ```
+
 ## Glückwunsch🤩
 
 Du hast den ersten Teil des Tutorials erfolgreich absolviert!🙌

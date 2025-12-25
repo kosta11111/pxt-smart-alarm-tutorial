@@ -2,21 +2,31 @@
 iot-cube=github:Smartfeld/pxt-iot-cube#v1.1.2
 sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 ```
+#Alarmanlage
 
-## Schritt 4
+## Willkommen!
 
-Jetzt haben wir zwar eine Alarmanlage, aber noch keine Verbindung mit der Claviscloud.
-Das wollen wir jetzt ändern. 😉
+Im zweiten Teil des Tutorials verbinden wir die Alarmanlage mit der Claviscloud, um über
+das Dashboard zu prüfen, ob das überwachte Objekt geklaut wurde, oder noch da ist.
+
+Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
+
+## Schritt 1
+
+* **Ziehe** ``||basic:beim Start||`` Block ins Programm.
 
 * **Ziehe** den ``||IoTCube:LoRa Netzwerk-Verbindung||`` Block in den ``||basic:beim Start||``
 Block **rein**.
 
-* **Ziehe** danach den ``||loops:während||`` Block rein und in seinen **Parameter** den 
-``||logic:nicht||`` Block rein. In die Schleife kommt der ``||IoTCube:Gerätstatus-Bit||``
-Block, der auf **"Verbunden"** gestellt ist.
+* **Ziehe** danach den ``||loops:während||`` Block rein 
 
-* Während der IoT-Cube noch **nicht verbunden** ist, sollen die LED's unter ``||basic:zeige Symbol||``
-ein X zeigen, sonst einen **Haken**.
+* **Füge** in die **Bedinung** den ``||logic:nicht||`` hinzu
+
+* In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
+
+* **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
+
+* **Wiederhole** den Schritt unter der **Während-Schleife** mit einem Haken
 
 ```blocks
 IoTCube.LoRa_Join(
@@ -30,68 +40,21 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
 }
 basic.showIcon(IconNames.Yes)
 ```
-## Schritt 5
 
-Nun bauen wir eine Funktion, mit der wir Daten an die Claviscloud und so zum Dashboard
-schicken können. Davor erstellst du 3 ``||variables:Variablen |`` mit dem Namen
-**spaeterSenden**, **sendeErlaubnis** und **msBeiLetztemSenden**, setzt
-die ersten zwei auf **falsch**, während die letzte Variable den Wert ``||control:Millisekunden||``
-hat und fügst alle beim Start hinzu.
+## Schritt 2
 
-```blocks
-IoTCube.LoRa_Join(
-eBool.enable,
-eBool.enable,
-10,
-8
-)
-while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
-    basic.showIcon(IconNames.Pitchfork)
-}
-basic.showIcon(IconNames.Yes)
-spaeterSenden = false
-sendeErlaubnis = false
-msBeiLetztemSenden = control.millis()
-```
+Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud senden.
 
-## Schritt 6
+* **Erstelle** zwei ``||functions:Funktionen||`` namens **objektSicher** und **objektGeklaut**
 
-Da wir unsere Variablen für die Funktion haben, erstellst du jetzt eine neue
-``||functions:Funktion||`` mit dem namen **sendeDaten** mit 
-einer Zahl als Parameter namens **status** und befolgst folgende Schritte.
+* **Erstelle** eine neue Variable namens ``||variables: objektVorhanden |``
+ 
+* **Setze** die neue Variable in **objektSicher** auf **1** und in **objektGeklaut** auf **0**
 
-* Zieh eine ``||logic:Wenn-Abfrage mit ansonsten||`` in die Funktion, die abfragt,
-ob ``||control:Millisekunden||`` größer ist als die
-``||variables: msBeiLetztemSenden |`` und addierst zur variable per 
-``||math: + ||`` 5000, indem du den Matheblock in die rechte Seite der Abfrage ziehst.
-* Zieh den ``||IoTCube:Wahrheitswert||`` Block mit **ID_0 = status** in die Abfrage rein
-und sende mit dem ``||IoTCube:sende Daten||`` Block die Daten zur Claviscloud
-* Setze danach ``||variables: spaeterSenden |`` auf falsch und die
-``||variables: msBeiLetztemSenden |`` auf ``||control:Millisekunden||``. In
-ansonsten setzt du ``||variables: spaeterSenden |`` auf wahr.
+* In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-```blocks
-function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
-        IoTCube.addBinary(eIDs.ID_0, status)
-        IoTCube.SendBufferSimple()
-        spaeterSenden = false
-        msBeiLetztemSenden = control.millis()
-    } else {
-        spaeterSenden = true
-    }
-}
-```
-## Schritt 7
+* **Ziehe** ins leere Feld des Aufrufs die Variable rein
 
-Da du jetzt weißt, wie man ``||functions:Funktion||`` erstellt, machen wir zwei neue
-mit dem Namen **objektSicher** und **objektGeklaut**.
-
-* Wir machen eine neue ``||variables: Variable |`` namens **objektVorhanden**
-und setzen sie in ``||functions:objektSicher||`` auf **1**, während wir sie in
-``||functions:objektGeklaut||`` auf **0** setzen.
-* In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein und ziehst
-in den **Parameter** die ``||variables: objektVorhanden |`` Variable rein.
 
 ```blocks
 function objektSicher () {
@@ -104,7 +67,7 @@ function objektGeklaut () {
 }
 ```
 
-## Schritt 8
+## Schritt 3
 
 Nun haben wir unsere zwei Funktionen, welche unserem Dashboard Bescheid geben,
 ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
@@ -140,7 +103,7 @@ basic.forever(function () {
     }
 })
 ```
-## Schritt 9
+## Schritt 4
 
 Um sicherzugehen, dass die Daten verlässlich gesendet wurden, machen wir eine Schleife
 die prüft, ob die Daten beim Aufrufen der Funktion geschickt wurden.
