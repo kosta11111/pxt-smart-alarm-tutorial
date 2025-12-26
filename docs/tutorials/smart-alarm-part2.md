@@ -13,14 +13,14 @@ Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 
 ## Schritt 1
 
-* **Ziehe** ``||basic:beim Start||`` Block ins Programm.
+* **Ziehe** den ``||basic:beim Start||`` Block ins Programm.
 
 * **Ziehe** den ``||IoTCube:LoRa Netzwerk-Verbindung||`` Block in den ``||basic:beim Start||``
 Block **rein**.
 
 * **Ziehe** danach den ``||loops:während||`` Block rein 
 
-* **Füge** in die **Bedinung** den ``||logic:nicht||`` hinzu
+* **Füge** in die **Bedinung** den ``||logic:nicht||`` Codeblock hinzu
 
 * In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
 
