@@ -11,6 +11,10 @@ das Dashboard zu prüfen, ob das überwachte Objekt geklaut wurde, oder noch da 
 
 Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 
+## Wichtig! @showdialog
+
+**Schließe das vorherige Tutorial**, um Fehler beim Herunterladen des Codes zu vermeiden!
+
 ## Schritt 1
 
 * **Ziehe** den ``||basic:beim Start||`` Block ins Programm.
