@@ -23,7 +23,7 @@ Klicke auf die **Codeschnipsel** im Text, um direkt zu den **Codeblöcken** zu k
 
 ## Schritt 1
 
-Als ersten Schritt **ziehen** wir eine ``||logic:Wenn-Abfrage||`` 
+Als ersten Schritt **ziehen** wir einen ``||logic:Wenn-Block||`` 
 in den ``||basic:dauerhaft||`` Codeblock **rein**. 
 
 Das ist wichtig, um zu prüfen,ob unser Objekt noch da ist.
@@ -40,13 +40,13 @@ basic.forever(function () {
 Jetzt wollen wir, dass der Cube einen Alarm schlägt, wenn der Ultraschallsensor
 nichts in 10 cm Reichweite erkennt.
 
-* **Ziehe** den ``||logic:0 < 0||`` Block in die **Bedinung** der **Wenn-Abfrage** rein
+* **Ziehe** den ``||logic:0 < 0||`` Block ins **Wahr-Feld** des **Wenn-Codeblocks** rein
 
 * **Ziehe** den ``||smartfeldSensoren:Distanz in cm||`` Codeblock in die rechte Null
 
 * **Schreibe** in die linke Null eine **10**
 
-* Der Codeblock ``||music:spiele Ton||`` kommt in die Abfrage
+* Der Codeblock ``||music:spiele Ton||`` kommt in den **Wenn-Codeblock**
 
 * Ändere den **Schlag** auf **1/2**, um einen typischen Alarmsound zu bekommen
 
@@ -74,9 +74,9 @@ Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
 
 * **Füge** den ``||loops:während||`` Codeblock oben in den ``||basic:dauerhaft||`` Block hinzu 
 
-* **Ziehe** den dort **bereits stehenden Code in die Schleife**.
+* **Ziehe** den dort **bereits stehenden Code in den Während-Codeblock**.
 
-* **Ziehe** in die **Bedinung** der Schleife die neue Variable ``||Variables:aktiv||``
+* **Ziehe** ins **Falsch-Feld** der **Während-Schleife** die neue Variable ``||Variables:aktiv||``
 rein.
 
 Drücke auf **A**, um die Alarmanlage einzuschalten und auf **B**, um sie zu deaktivieren.
