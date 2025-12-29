@@ -13,7 +13,7 @@ Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 
 ## Wichtig! @showdialog
 
-**Schließe das vorherige Tutorial**, um Fehler beim Herunterladen des Codes zu vermeiden!
+**Schließe das Fenster des vorherigen Tutorials**, um beim Herunterladen des Codes Fehler zu vermeiden!
 
 ## Schritt 1
 
@@ -22,11 +22,13 @@ Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 * **Ziehe** den ``||IoTCube:LoRa Netzwerk-Verbindung||`` Block in den ``||basic:beim Start||``
 Block **rein**.
 
-* **Ziehe** danach den ``||loops:während||`` Block rein 
+* **Ziehe** danach den ``||loops:während||`` Block **darunter** rein 
 
-* **Füge** in die **Bedinung** den ``||logic:nicht||`` Codeblock hinzu
+* **Füge** in das **Falsch-Feld** den ``||logic:nicht||`` Codeblock ein
 
 * In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
+
+* **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbinden**
 
 * **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
 
@@ -58,7 +60,7 @@ Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud
 
 * In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-* **Ziehe** ins leere Feld des **Aufrufs** die **Variable** rein
+* **Ziehe** in die **1** beider **Aufrufe** die **Variable** rein
 
 
 ```blocks
@@ -78,7 +80,7 @@ Nun haben wir unsere zwei Funktionen, welche unserem Dashboard Bescheid
 ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
 
 * **Füge** in die **Wenn-Abfrage** von ``||basic:dauerhaft||`` den 
-``||functions:Aufruf objektGeklaut||`` hinzu
+``||functions:Aufruf objektGeklaut||`` unten hinzu
 
 * In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
 
