@@ -2,7 +2,7 @@
 iot-cube=github:Smartfeld/pxt-iot-cube#v1.1.2
 sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 ```
-#Alarmanlage
+# Alarmanlage
 
 ## Willkommen!
 
@@ -28,11 +28,11 @@ Block **rein**.
 
 * In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
 
-* **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbinden**
+* **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbunden**
 
 * **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
 
-* **Wiederhole** den Schritt unter der **Während-Schleife** mit einem Haken
+* **Wiederhole** den Schritt unter des **Während-Codeblocks** mit einem Haken
 
 ```blocks
 IoTCube.LoRa_Join(
@@ -60,7 +60,7 @@ Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud
 
 * In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-* **Ziehe** in die **1** beider **Aufrufe** die **Variable** rein
+* **Ersetze** die **1** im ``||functions:Aufruf sendeDaten||`` mit der neuen **Variable**
 
 
 ```blocks
@@ -79,8 +79,8 @@ function objektGeklaut () {
 Nun haben wir unsere zwei Funktionen, welche unserem Dashboard Bescheid geben,
 ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
 
-* **Füge** in die **Wenn-Abfrage** von ``||basic:dauerhaft||`` den 
-``||functions:Aufruf objektGeklaut||`` unten hinzu
+* **Füge** in den **Wenn-Block** von ``||basic:dauerhaft||`` den 
+``||functions:Aufruf objektGeklaut||`` hinzu
 
 * In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
 

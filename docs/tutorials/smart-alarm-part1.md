@@ -26,7 +26,7 @@ Klicke auf die **Codeschnipsel** im Text, um direkt zu den **Codeblöcken** zu k
 Als ersten Schritt **ziehen** wir einen ``||logic:Wenn-Block||`` 
 in den ``||basic:dauerhaft||`` Codeblock **rein**. 
 
-Das ist wichtig, um zu prüfen,ob unser Objekt noch da ist.
+Das ist wichtig, um zu prüfen, ob unser Objekt noch da ist.
 
 ```blocks 
 basic.forever(function () {
@@ -43,6 +43,8 @@ nichts in 10 cm Reichweite erkennt.
 * **Ziehe** den ``||logic:0 < 0||`` Block ins **Wahr-Feld** des **Wenn-Codeblocks** rein
 
 * **Ziehe** den ``||smartfeldSensoren:Distanz in cm||`` Codeblock in die rechte Null
+
+* **Ändere** beim ``||smartfeldSensoren:Distanz in cm||`` Codeblock P0 auf **P1**
 
 * **Schreibe** in die linke Null eine **10**
 
@@ -62,21 +64,21 @@ basic.forever(function () {
 Der IoT-Cube funktioniert jetzt als eine Alarmanlage, aber man kann den Alarm nicht deaktivieren.
 Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
 
-* **Ziehe** den ``||input: Wenn Knopf A geklickt||`` Codeblock **zweimal** in das Programm
+* **Ziehe** den ``||input: Wenn Knopf A geklickt||`` Codeblock **zweimal** in die Umgebung rein
  
-* **Ändere bei einem** der beiden Codeblöcken **den Buchstaben** auf ein **B** um.
+* **Ändere bei einem** der Codeblöcke **den Buchstaben** auf ein **B** um
 
-* **Erstelle** eine neue ``||Variables:Variable||`` namens **"aktiv"**.
+* **Erstelle** eine neue ``||Variables:Variable||`` namens **"aktiv"**
 
-* **Füge** ``||Variables:setze aktiv auf 0||`` in ``||input: Wenn Knopf B geklickt||`` ein.
+* **Füge** ``||Variables:setze aktiv auf 0||`` in ``||input: Wenn Knopf B geklickt||`` ein
 
-* **Wiederhole** den Schritt bei ``||input: Wenn Knopf A geklickt||`` und änder die Zahl auf 1.
+* **Wiederhole** den Schritt bei ``||input: Wenn Knopf A geklickt||`` und änder die Zahl auf 1
 
 * **Füge** den ``||loops:während||`` Codeblock oben in den ``||basic:dauerhaft||`` Block hinzu 
 
-* **Ziehe** den dort **bereits stehenden Code in den Während-Codeblock**.
+* **Ziehe** den dort **bereits stehenden Code in den Während-Codeblock**
 
-* **Ziehe** ins **Falsch-Feld** der **Während-Schleife** die neue Variable ``||Variables:aktiv||``
+* **Ziehe** ins **Falsch-Feld** des **Während-Codeblocks** die neue Variable ``||Variables:aktiv||``
 rein.
 
 Drücke auf **A**, um die Alarmanlage einzuschalten und auf **B**, um sie zu deaktivieren.
