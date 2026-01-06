@@ -105,7 +105,7 @@ basic.forever(function () {
 
 Du hast den ersten Teil des Tutorials erfolgreich absolviert!🙌
 
-Lade den Code auf dein IoT-Cube herunter, und aktiviere die Alarmanlage durchs drücken
+Lade den Code auf dein IoT-Cube herunter und aktiviere die Alarmanlage durchs drücken
 auf den A-Button. Lege ein Objekt vor dem Ultraschallsensor und schau was passiert, wenn
 du diesen wegnimmst.
 
