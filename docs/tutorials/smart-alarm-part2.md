@@ -17,22 +17,22 @@ Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 
 ## Schritt 1
 
-* **Ziehe** den ``||basic:beim Start||`` Block ins Programm.
+- **Ziehe** den ``||basic:beim Start||`` Block ins Programm.
 
-* **Ziehe** den ``||IoTCube:LoRa Netzwerk-Verbindung||`` Block in den ``||basic:beim Start||``
+- **Ziehe** den ``||IoTCube:LoRa Netzwerk-Verbindung||`` Block in den ``||basic:beim Start||``
 Block **rein**.
 
-* **Ziehe** danach den ``||loops:während||`` Block **darunter** rein 
+- **Ziehe** danach den ``||loops:während||`` Block **darunter** rein 
 
-* **Füge** in das **Falsch-Feld** den ``||logic:nicht||`` Codeblock ein
+- **Füge** in das **Falsch-Feld** den ``||logic:nicht||`` Codeblock ein
 
-* In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
+- In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
 
-* **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbunden**
+- **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbunden**
 
-* **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
+- **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
 
-* **Wiederhole** den Schritt unter des **Während-Codeblocks** mit einem Haken
+- **Wiederhole** den Schritt unter des **Während-Codeblocks** mit einem Haken
 
 ```blocks
 IoTCube.LoRa_Join(
@@ -51,16 +51,16 @@ basic.showIcon(IconNames.Yes)
 
 Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud senden.
 
-* **Erstelle** zwei ``||functions:Funktionen||`` namens **objektSicher** und **objektGeklaut**
+- **Erstelle** zwei ``||functions:Funktionen||`` namens **objektSicher** und **objektGeklaut**
 
-* **Erstelle** eine neue Variable namens ``||variables: objektVorhanden |``
+- **Erstelle** eine neue Variable namens ``||variables: objektVorhanden |``
  
-* **Setze** die neue Variable mit ``||variables: setze objektVorhanden auf||`` in 
+- **Setze** die neue Variable mit ``||variables: setze objektVorhanden auf||`` in 
 **objektSicher** auf **1** und in **objektGeklaut** auf **0**
 
-* In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
+- In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-* **Ersetze** die **1** im ``||functions:Aufruf sendeDaten||`` mit der neuen **Variable**
+- **Ersetze** die **1** im ``||functions:Aufruf sendeDaten||`` mit der neuen **Variable**
 
 
 ```blocks
@@ -79,10 +79,10 @@ function objektGeklaut () {
 Nun haben wir unsere zwei Funktionen, welche unserem Dashboard Bescheid geben,
 ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
 
-* **Füge** in den **Wenn-Block** von ``||basic:dauerhaft||`` den 
+- **Füge** in den **Wenn-Block** von ``||basic:dauerhaft||`` den 
 ``||functions:Aufruf objektGeklaut||`` hinzu
 
-* In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
+- In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
 
 ```blocks
 IoTCube.LoRa_Join(
