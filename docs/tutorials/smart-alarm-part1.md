@@ -61,28 +61,19 @@ basic.forever(function () {
 ```
 ## Schritt 3
 
-Der IoT-Cube funktioniert jetzt als eine Alarmanlage, aber man kann den Alarm nicht deaktivieren.
-Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
+Der IoT-Cube funktioniert jetzt als eine Alarmanlage, aber man kann den Alarm nicht deaktivieren.
+Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
 
-- **Ziehe** den ``||input: Wenn Knopf A geklickt||`` Codeblock **zweimal** in die Umgebung rein
- 
-- **Ändere bei einem** der Codeblöcke **den Buchstaben** auf ein **B** um
-
-- **Erstelle** eine neue ``||Variables:Variable||`` namens **"aktiv"**
-
-- **Füge** ``||Variables:setze aktiv auf 0||`` in ``||input: Wenn Knopf B geklickt||`` ein
-
-- **Wiederhole** den Schritt bei ``||input: Wenn Knopf A geklickt||`` und änder die Zahl auf 1
-
-- **Füge** den ``||loops:während||`` Codeblock oben in den ``||basic:dauerhaft||`` Block hinzu 
-
-- **Ziehe** den dort **bereits stehenden Code in den Während-Codeblock**
-
-- **Ziehe** ins **Falsch-Feld** des **Während-Codeblocks** die neue Variable ``||Variables:aktiv||``
-rein.
+- **Ziehe** den ``||input: Wenn Knopf A geklickt||`` Codeblock **zweimal** in die Umgebung rein
+- **Ändere bei einem** der Codeblöcke **den Buchstaben** auf ein **B** um
+- **Erstelle** eine neue ``||Variables:Variable||`` namens **"aktiv"**
+- **Füge** ``||Variables:setze aktiv auf 0||`` in ``||input: Wenn Knopf B geklickt||`` ein
+- **Wiederhole** den Schritt bei ``||input: Wenn Knopf A geklickt||`` und ändere die Zahl auf 1
+- **Füge** den ``||loops:während||`` Codeblock oben in den ``||basic:dauerhaft||`` Block hinzu
+- **Ziehe** den dort **bereits stehenden Code in den Während-Codeblock**
+- **Ziehe** ins **Falsch-Feld** des **Während-Codeblocks** die neue Variable ``||Variables:aktiv||`` rein.
 
 Drücke auf **A**, um die Alarmanlage einzuschalten und auf **B**, um sie zu deaktivieren.
-
 ```blocks
 input.onButtonPressed(Button.A, function () {
     aktiv = 1
