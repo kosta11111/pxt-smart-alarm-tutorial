@@ -26,7 +26,7 @@ Klicke auf die **Codeschnipsel** im Text, um direkt zu den **Codeblöcken** zu k
 Als ersten Schritt **ziehen** wir einen ``||logic:Wenn-Block||`` 
 in den ``||basic:dauerhaft||`` Codeblock **rein**. 
 
-Das ist wichtig, um zu prüfen, ob unser Objekt noch da ist.
+Das ist wichtig, da der Wenn-Block später mithilfe des Ultraschallsensors überprüfen wird, ob unser Objekt noch da ist.
 
 ```blocks 
 basic.forever(function () {
@@ -52,6 +52,9 @@ nichts in 10 cm Reichweite erkennt.
 
 - Ändere den **Schlag** auf **1/2**, um einen typischen Alarmsound zu bekommen
 
+Im **Wahr-Feld** wird geprüft, ob der Ultraschallsensor eine entfernung von über zehn Centimeter erkennt. Ist das der Fall, wird der **Spiele ton Codeblock** im **Wenn-Codeblock** ausgeführt. 
+
+
 ```blocks
 basic.forever(function () {
     if (smartfeldSensoren.measureInCentimetersV2(DigitalPin.P1) > 10) {
@@ -61,8 +64,8 @@ basic.forever(function () {
 ```
 ## Schritt 3
 
-Der IoT-Cube funktioniert jetzt als eine Alarmanlage, aber man kann den Alarm nicht deaktivieren.
-Das Deaktivieren implementieren wir mit den A + B-Knöpfen.
+Der IoT-Cube funktioniert jetzt als eine Alarmanlage. Man kann diesen aber nicht ein oder ausschalten.
+Diese Funktion implementieren wir mit den A + B-Knöpfen.
 
 - **Ziehe** den ``||input: Wenn Knopf A geklickt||`` Codeblock **zweimal** in die Umgebung rein
 - **Ändere bei einem** der Codeblöcke **den Buchstaben** auf ein **B** um
