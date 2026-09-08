@@ -80,7 +80,7 @@ Drücke auf **A**, um die Alarmanlage einzuschalten und auf **B**, um sie zu dea
 
 Im folgenden Video wird erklärt, wie die While-Schleife und die If-Abfrage im Code funktionieren.
 <video controls width="100%">
-  <source src="pxt-smart-alarm-tutorial/docs/videos/Tutorialvideo.mp4" type="video/mp4">
+  <source src="https://github.com/kosta11111/pxt-smart-alarm-tutorial/blob/master/docs/videos/Tutorialvideo.mp4" type="video/mp4">
 </video>
 
 ```blocks
