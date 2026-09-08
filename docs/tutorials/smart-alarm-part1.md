@@ -77,6 +77,12 @@ Diese Funktion implementieren wir mit den A + B-Knöpfen.
 - **Ziehe** ins **Falsch-Feld** des **Während-Codeblocks** die neue Variable ``||Variables:aktiv||`` rein.
 
 Drücke auf **A**, um die Alarmanlage einzuschalten und auf **B**, um sie zu deaktivieren.
+
+Im folgenden Video wird erklärt, wie die While-Schleife und die If-Abfrage im Code funktionieren.
+<video controls width="100%">
+  <source src="pxt-smart-alarm-tutorial/docs/videos/Tutorialvideo.mp4" type="video/mp4">
+</video>
+
 ```blocks
 input.onButtonPressed(Button.A, function () {
     aktiv = 1
