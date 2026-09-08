@@ -26,13 +26,15 @@ Block **rein**.
 
 - **Füge** in das **Falsch-Feld** den ``||logic:nicht||`` Codeblock ein
 
-- In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:Gerätstatus-Bit||`` Block
+- In den ``||logic:nicht||`` Codeblock kommt der ``||IoTCube:lese Gerätstatus-Bit||`` Block
 
-- **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisieren** auf **Verbunden**
+- **Ändere** den ``||IoTCube:Gerätstatus-Bit||`` von **Initialisierung** auf **Verbunden**
 
 - **Ziehe** mit dem ``||basic:zeige Symbol||`` ein X in die **Während-Schleife**
 
-- **Wiederhole** den Schritt unter des **Während-Codeblocks** mit einem Haken
+- **Wiederhole** den letzten Schritt unter des **Während-Codeblocks** mit einem Haken
+
+Mit dem zweiten Schritt verbinden wir am Anfang den IoT-Cube mit dem LoRa Netzwerk. Solange Der IoT-Cube noch nicht Verbunden ist, zeigt dieser ein X auf der LED-Fläche an. Verbindet sich der IoT-Cube erfolgreich, ändert sich das X zu einem Haken.
 
 ```blocks
 IoTCube.LoRa_Join(
@@ -52,10 +54,8 @@ basic.showIcon(IconNames.Yes)
 Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud senden.
 
 - **Erstelle** zwei ``||functions:Funktionen||`` namens **objektSicher** und **objektGeklaut**
-
-- **Erstelle** eine neue Variable namens ``||variables: objektVorhanden |``
  
-- **Setze** die neue Variable mit ``||variables: setze objektVorhanden auf||`` in 
+- **Setze** die Variable **objektVorhanden** mit ``||variables: setze objektVorhanden auf||`` in 
 **objektSicher** auf **1** und in **objektGeklaut** auf **0**
 
 - In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
