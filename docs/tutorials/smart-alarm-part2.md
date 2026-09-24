@@ -15,6 +15,7 @@ Die Funktion, um Daten an die Cloud zu senden, ist bereits vorhanden!
 
 **Schließe das Fenster des vorherigen Tutorials**, um beim Herunterladen des Codes Fehler zu vermeiden!
 
+Durch das **Klicken** auf die **Kommentar-Zeichen** neben der Namen bestehender Codeblöcke, kannst du **genauere Beschreibungen** zu den Codeabschnitten lesen!
 ## Schritt 1
 
 - **Ziehe** den ``||basic:beim Start||`` Block ins Programm.
@@ -113,6 +114,7 @@ Du hast die Alarmanlage mit all seinen Funktionen programmiert! Gehe auf die [
 um dort dein IoT-Cube mit dem Dashboard für die Alarmanlage zu verbinden!
 
 ```template
+// Durch diese Funktion wird der Claviscloud Daten versendet, die dort vom zugehörigen Widget verarbeitet werden.
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
         IoTCube.addBinary(eIDs.ID_0, status)
@@ -128,6 +130,7 @@ let msBeiLetztemSenden = 0
 let spaeterSenden = false
 
 basic.forever(function () {
+// Die While Schleife (Im Blockcode "während" genannt) aktiviert die Alarmanlage, je nachdem ob dieser durch den A Knopf aktiviert oder durch den B Knopf deaktiviert wurde.
     while (aktiv) {
         if (smartfeldSensoren.measureInCentimetersV2(DigitalPin.P1) > 10) {
             music.play(music.tonePlayable(262, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
@@ -137,16 +140,19 @@ basic.forever(function () {
     }
 })
 
+// Falls das Senden durch die sendeDaten Funktion aufgrund von Zeitüberschreitung nicht geklappt hat, wird die Funktion in dieser Schleife erneut ausgeführt.
 loops.everyInterval(500, function () {
     if (spaeterSenden) {
         sendeDaten(objektVorhanden)
     }
 })
 
+// Die Alarmanlage wird aktiviert.
 input.onButtonPressed(Button.A, function () {
     aktiv = 1
 })
 
+// Die Alarmanlage wird deaktiviert.
 input.onButtonPressed(Button.B, function () {
     aktiv = 0
 })
