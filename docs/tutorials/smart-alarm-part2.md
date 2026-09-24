@@ -114,14 +114,16 @@ Du hast die Alarmanlage mit all seinen Funktionen programmiert! Gehe auf die [
 um dort dein IoT-Cube mit dem Dashboard für die Alarmanlage zu verbinden!
 
 ```template
-// Durch diese Funktion wird der Claviscloud Daten versendet, die dort vom zugehörigen Widget verarbeitet werden.
+// Durch diese Funktion wird der Claviscloud Datenpakete versendet, die dort vom zugehörigen Widget verarbeitet werden.
 function sendeDaten (status: number) {
+ // In dieser Wenn-Abfrage wird überprüft, ob das Datenpaket innerhalb der erwünschten Zeit versendet wird. Ist das nicht der Fall, redet man von einer Zeitüberschreitung.
     if (control.millis() > msBeiLetztemSenden + 5000) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         spaeterSenden = false
         msBeiLetztemSenden = control.millis()
     } else {
+     // Dadurch, dass die Variable spaeterSenden auf true gesetzt wird, führt der alle 500 ms Codeblock die Funktion neu aus. Dies passiert nur bei einer Zeitüberschreitung.
         spaeterSenden = true
     }
 }
@@ -132,7 +134,9 @@ let spaeterSenden = false
 basic.forever(function () {
 // Die While Schleife (Im Blockcode "während" genannt) aktiviert die Alarmanlage, je nachdem ob dieser durch den A Knopf aktiviert oder durch den B Knopf deaktiviert wurde.
     while (aktiv) {
+    // Es wird geprüft, ob der Ultraschallsensor zu dem überwachten Objekt eine Entfernung abmisst, die länger als zehn Zentimeter beträgt.
         if (smartfeldSensoren.measureInCentimetersV2(DigitalPin.P1) > 10) {
+         // Falls das überwachte Objekt nicht in zehn Zentimeter Reichweite ist, wird hier ein Ton im schnellen Takt abgespielt.
             music.play(music.tonePlayable(262, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
         } else {
 
