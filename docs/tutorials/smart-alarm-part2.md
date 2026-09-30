@@ -61,7 +61,7 @@ Wir erstellen jetzt 2 Funktionen, mit denen wir die richtigen Daten an die Cloud
 
 - In **beiden Funktionen** ziehst du den ``||functions:Aufruf sendeDaten||`` rein 
 
-- **Ersetze** die **1** im ``||functions:Aufruf sendeDaten||`` mit der neuen **Variable**
+- **Ersetze** die **1** im ``||functions:Aufruf sendeDaten||`` mit der Variable ``||variables:objektVorhanden||``
 
 
 ```blocks
