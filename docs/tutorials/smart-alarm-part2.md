@@ -85,6 +85,11 @@ ob unser Objekt vom Ultraschallsensor erfasst wird oder geklaut wurde.
 
 - In das Feld unter **Ansonsten** kommt der ``||functions:Aufruf objektSicher||`` 
 
+Im folgenden Video wird erklärt, wie genau eine Funktion aufgebaut ist und welche Vorteile diese hat.
+<video controls width="100%">
+  <source src="https://github.com/kosta11111/pxt-smart-alarm-tutorial/raw/refs/heads/master/docs/videos/Tutorialvideo_2.mp4" type="video/mp4">
+</video>
+
 ```blocks
 IoTCube.LoRa_Join(
 eBool.enable,
